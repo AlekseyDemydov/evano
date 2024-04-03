@@ -3,6 +3,7 @@
     background-color: white;
     height: 1198px;
     padding-top: 36px;
+    position: relative;
 }
 .logo {
   display: flex;
@@ -40,4 +41,30 @@
 }
 .inc{
     stroke:#9197b3 ;
+}
+.ava{
+    position: absolute;
+  bottom: 76;
+  left: 28px;
+    display: flex;
+    align-items: center;
+    img{
+        margin-right: 12px;
+    }
+    p{
+        margin: 0;
+    }
+    &-name{
+        font-family: "Poppins", sans-serif;
+        font-weight: 600;
+        font-style: normal;
+        font-size: 14; 
+    }
+    &-job{
+        font-family: "Poppins", sans-serif;
+        font-weight: 500;
+        font-style: normal;
+        font-size: 12; 
+        color: #757575;
+    }
 }
