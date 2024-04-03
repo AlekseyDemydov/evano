@@ -1,8 +1,211 @@
-
 <div class="dashboard">
-    <p class="title">Hello Evano 👋🏼,</p>
-    <div class="info">
-        <p class="infoTitle">All Customers</p>
-        <p class="infoButTitle">Active Members</p>
+  <p class="title">Hello Evano 👋🏼,</p>
+  <div class="info">
+    <p class="infoTitle">All Customers</p>
+    <p class="infoButTitle">Active Members</p>
+    <table class="table">
+      <tr class="textList">
+        <td>Customer Name</td>
+        <td>Company</td>
+        <td>Phone Number</td>
+        <td>Email</td>
+        <td>Country</td>
+        <td>Status</td>
+      </tr>
+      <tr class="textList">
+        <td>Jane Cooper</td>
+        <td>Microsoft</td>
+        <td>(225) 555-0118</td>
+        <td>jane@microsoft.com</td>
+        <td>United States</td>
+        <td>
+          <button class="btnAct" onclick="toggleMembers(this)">Active</button>
+        </td>
+      </tr>
+      <tr class="textList">
+        <td>Floyd Miles</td>
+        <td>Yahoo</td>
+        <td>(205) 555-0100</td>
+        <td>floyd@yahoo.com</td>
+        <td>Kiribati</td>
+        <td>
+          <button class="btnAct" onclick="toggleMembers(this)">Active</button>
+        </td>
+      </tr>
+      <tr class="textList">
+        <td>Ronald Richards</td>
+        <td>Adobe</td>
+        <td>(302) 555-0107</td>
+        <td>ronald@adobe.com</td>
+        <td>Israel</td>
+        <td>
+          <button class="btnAct" onclick="toggleMembers(this)">Active</button>
+        </td>
+      </tr>
+      <tr class="textList">
+        <td>Jerome Bell</td>
+        <td>Tesla</td>
+        <td>(252) 555-0126</td>
+        <td>marvin@tesla.com</td>
+        <td>Iran</td>
+        <td>
+          <button class="btnAct" onclick="toggleMembers(this)">Active</button>
+        </td>
+      </tr>
+      <tr class="textList">
+        <td>Kathryn Murphy</td>
+        <td>Microsoft</td>
+        <td>(225) 555-0118</td>
+        <td>jane@microsoft.com</td>
+        <td>United States</td>
+        <td>
+          <button class="btnAct" onclick="toggleMembers(this)">Active</button>
+        </td>
+      </tr>
+      <tr class="textList">
+        <td>Jacob Jones</td>
+        <td>Yahoo</td>
+        <td>(205) 555-0100</td>
+        <td>floyd@yahoo.com</td>
+        <td>Kiribati</td>
+        <td>
+          <button class="btnAct" onclick="toggleMembers(this)">Active</button>
+        </td>
+      </tr>
+      <tr class="textList">
+        <td>Kristin Watson</td>
+        <td>Facebook</td>
+        <td>(302) 555-0107</td>
+        <td>ronald@adobe.com</td>
+        <td>Israel</td>
+        <td>
+          <button class="btnAct" onclick="toggleMembers(this)">Active</button>
+        </td>
+      </tr>
+      <tr class="textList">
+        <td>Marvin McKinney</td>
+        <td>Tesla</td>
+        <td>(252) 555-0126</td>
+        <td>marvin@tesla.com</td>
+        <td>Iran</td>
+        <td>
+          <button class="btnAct" onclick="toggleMembers(this)">Active</button>
+        </td>
+      </tr>
+    </table>
+    <div class="pagBlock">
+        <p>Showing data 1 to 8 of  256K entries</p>
+    <div class="pagination" id="pagination"></div>
     </div>
+  </div>
+
+  
 </div>
+
+<script>
+  function toggleMembers(button) {
+    if (button.textContent === 'Active') {
+      button.textContent = 'Inactive';
+      button.style.backgroundColor = '#FFC5C5';
+      button.style.color = '#DF0404';
+      button.style.borderColor = '#DF0404';
+    } else {
+      button.textContent = 'Active';
+      button.style.backgroundColor = '#16C098';
+      button.style.color = '#008767';
+      button.style.borderColor = '#008767';
+    }
+  }
+</script>
+
+<script>
+    const pageCount = 40;
+    let currentPage = 1;
+  
+    function renderPagination() {
+      const paginationDiv = document.getElementById('pagination');
+      paginationDiv.innerHTML = '';
+  
+      // Left button
+      const prevButton = document.createElement('button');
+      prevButton.textContent = '‹';
+      prevButton.addEventListener('click', () => {
+        if (currentPage > 1) {
+          currentPage--;
+          renderPagination();
+        }
+      });
+      paginationDiv.appendChild(prevButton);
+  
+      // Leftmost 4 buttons
+      for (let i = 1; i <= Math.min(4, pageCount); i++) {
+        const button = document.createElement('button');
+        button.textContent = i;
+        button.addEventListener('click', () => {
+          currentPage = i;
+          renderPagination();
+        });
+        if (i === currentPage) {
+          button.style.fontWeight = 'bold';
+          button.style.backgroundColor = '#5932EA';
+          button.style.color = '#FFFFFF'; // Змінений колір тексту кнопок на білий
+        }
+        paginationDiv.appendChild(button);
+      }
+  
+      // Add ellipsis after 4 buttons
+      if (pageCount > 4) {
+        const ellipsisButton = document.createElement('button');
+        ellipsisButton.textContent = '...';
+        ellipsisButton.disabled = true;
+        paginationDiv.appendChild(ellipsisButton);
+      }
+  
+      // 3 buttons in the middle
+      if (currentPage > 4 && currentPage <= pageCount - 2) {
+        for (let i = currentPage - 1; i <= currentPage + 1; i++) {
+          const button = document.createElement('button');
+          button.textContent = i;
+          button.addEventListener('click', () => {
+            currentPage = i;
+            renderPagination();
+          });
+          if (i === currentPage) {
+            button.style.fontWeight = 'bold';
+            button.style.backgroundColor = '#5932EA';
+            button.style.color = '#FFFFFF'; // Змінений колір тексту кнопок на білий
+          }
+          paginationDiv.appendChild(button);
+        }
+      }
+  
+      // Last button
+      if (pageCount > 4) {
+        const button = document.createElement('button');
+        button.textContent = pageCount;
+        button.addEventListener('click', () => {
+          currentPage = pageCount;
+          renderPagination();
+        });
+        if (currentPage === pageCount) {
+          button.style.fontWeight = 'bold';
+          button.style.backgroundColor = '#5932EA';
+          button.style.color = '#FFFFFF'; // Змінений колір тексту кнопок на білий
+        }
+        paginationDiv.appendChild(button);
+      }
+  
+      // Rightmost button
+      const nextButton = document.createElement('button');
+      nextButton.textContent = '›';
+      nextButton.addEventListener('click', () => {
+        if (currentPage < pageCount) {
+          currentPage++;
+          renderPagination();
+        }
+      });
+      paginationDiv.appendChild(nextButton);
+    }
+  
+    renderPagination();
+  </script>
