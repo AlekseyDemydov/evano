@@ -1,0 +1,40 @@
+.sideBar{
+    width: 306px;
+}
+.logo {
+  display: flex;
+  &-icon:last-child {
+    margin-left: 4px;
+  }
+  &-icon {
+    fill: #000000;
+  }
+  &-list{
+    
+    border-radius: 8px;
+    width: 250px;
+ padding: 11px;
+    align-items: start;
+    &:hover {
+        background-color: #5932EA;
+        .dash{
+            fill:white;
+        }
+        .inc{
+            stroke:white ;
+        }
+      }
+  }
+}
+.logoName {
+  display: flex;
+  align-items: flex-end;
+}
+.dash{
+    fill:#9197b3;
+  
+   
+}
+.inc{
+    stroke:#9197b3 ;
+}

@@ -1,1 +1,23 @@
 @import '~node_modules/modern-normalize/modern-normalize.css';
+
+.container {
+    display: flex;
+  margin: 0 auto;
+  background-color: var(--bg-color);
+  width: 1400px;
+  height: 500px;
+  font-family: 'Gothic A1', sans-serif;
+  padding-top: 40px;
+  @media screen and (max-width: 768px) {
+    max-width: 760px;
+    margin: 0;
+  }
+  @media screen and (max-width: 480px) {
+    max-width: 400px;
+    margin: 0;
+  }
+}
+ul{
+    list-style: none;
+    padding: 0;
+}
