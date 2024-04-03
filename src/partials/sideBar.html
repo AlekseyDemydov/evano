@@ -55,3 +55,11 @@
     
   </div>
 </div>
+<div class="burger-menu">
+    <div class="burger-icon">бургер</div> <!-- Додали текст "бургер" -->
+  </div>
+  <script>
+    document.querySelector('.burger-icon').addEventListener('click', function() {
+  document.querySelector('.sideBar').classList.toggle('show'); // Додаємо або видаляємо клас "show"
+});
+  </script>

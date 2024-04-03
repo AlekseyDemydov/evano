@@ -1,9 +1,16 @@
+
+
+
+
 .sideBar{
     width: 306px;
     background-color: white;
     height: 1198px;
     padding-top: 36px;
     position: relative;
+    display: none; /* Початково схований сайдбар */
+  opacity: 0; /* Початкова прозорість */
+  transition: opacity 0.5s ease; /* Плавне з'явлення */
 }
 .logo {
   display: flex;
@@ -68,3 +75,23 @@
         color: #757575;
     }
 }
+
+.burger-menu {
+    display: none; /* Приховуємо бургер-меню спочатку */
+  }
+  
+  @media screen and (max-width: 480px) {
+    .sideBar {
+      display: none; /* Приховуємо сайдбар при розмірах екрану менше або рівних 480px */
+    }
+  
+    .burger-menu {
+      display: block; /* Відображаємо бургер-меню при розмірах екрану менше або рівних 480px */
+    }
+    
+  }
+  .show {
+    display: block;
+    opacity: 1;
+    transition: opacity 0.5s ease; /* Плавне з'явлення */
+  }
