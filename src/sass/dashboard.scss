@@ -81,3 +81,41 @@ padding: 30px 38px;
         margin-right: 12px;
     }
 }
+@media screen and (max-width: 480px) {
+    .pagination{
+        button{
+         padding: 5px 7px;
+            border-radius: 4px;
+            text-align: center;
+            border: none;
+            background-color: #F5F5F5;
+            font-size: 13;
+        }
+        button:not(:last-child){
+            margin-right: 8px;
+        }
+    }
+    .pagBlock{
+       padding: 8px 0;
+       width: 345px;
+        p{
+            display: none;
+        }
+    }
+    .textList td{
+        font-family: "Poppins", sans-serif;
+        font-weight: 700;
+        font-style: normal;
+        font-size: 8;  
+        
+    }
+    .title{
+        margin-top: 35px;
+      }
+    .dashboard{
+        width: 100%;
+        
+        padding-left: 0px;
+    }
+    
+  }

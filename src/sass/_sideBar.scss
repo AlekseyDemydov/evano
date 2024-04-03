@@ -8,9 +8,15 @@
     height: 1198px;
     padding-top: 36px;
     position: relative;
-    display: none; /* Початково схований сайдбар */
-  opacity: 0; /* Початкова прозорість */
-  transition: opacity 0.5s ease; /* Плавне з'явлення */
+   
+}
+.sideBarr{
+  width: 306px;
+  background-color: white;
+  height: 1198px;
+  padding-top: 36px;
+  position: relative;
+ 
 }
 .logo {
   display: flex;
@@ -75,23 +81,98 @@
         color: #757575;
     }
 }
+.burgerrrr{
+  display: none;
+}
 
-.burger-menu {
-    display: none; /* Приховуємо бургер-меню спочатку */
-  }
   
   @media screen and (max-width: 480px) {
+    ul{
+      margin: 0;
+    }
+    .sideBarr {
+      padding-top: 55px; 
+    }
     .sideBar {
-      display: none; /* Приховуємо сайдбар при розмірах екрану менше або рівних 480px */
+      display: none; 
     }
   
     .burger-menu {
       display: block; /* Відображаємо бургер-меню при розмірах екрану менше або рівних 480px */
     }
+    .burgerrrr{
+      display: block;
+    }
     
   }
-  .show {
+  .burger {
     display: block;
-    opacity: 1;
-    transition: opacity 0.5s ease; /* Плавне з'явлення */
-  }
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    cursor: pointer;
+    z-index: 1000;
+    
+}
+#burger-toggle{
+  opacity: 0;
+}
+.burger span {
+    display: block;
+    width: 30px;
+    height: 3px;
+    background-color: #000;
+    margin: 5px 0;
+    transition: transform 0.3s, opacity 0.3s;
+}
+
+#burger-toggle:checked + .burger span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+#burger-toggle:checked + .burger span:nth-child(2) {
+    opacity: 0;
+}
+
+#burger-toggle:checked + .burger span:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+}
+
+.menu {
+  position: absolute; /* Змінено з fixed на absolute */
+  top: 0;
+  left: -300px;
+  width: 300px;
+  height: 100%;
+  background-color: #f8f8f8;
+  transition: left 0.3s;
+  z-index: 999;
+  overflow-y: auto; /* Додано для можливості прокрутки меню */
+}
+
+
+
+
+
+.menu ul li a {
+    text-decoration: none;
+    color: #333;
+    font-size: 20px;
+    transition: color 0.3s;
+}
+
+.menu ul li a:hover {
+    color: #ff4500;
+}
+
+#burger-toggle:checked + .burger ~ .menu {
+    left: 0;
+}
+
+
+
+@media screen and (max-width: 768px) {
+    .content {
+        margin-left: 0;
+    }
+}
